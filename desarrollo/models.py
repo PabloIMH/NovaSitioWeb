@@ -7,6 +7,13 @@ class PerfilUsuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     imagen_perfil = models.ImageField(upload_to='perfiles/', null=True, blank=True)
 
+    # Agregamos el campo "rol" para distinguir entre Administrador y Suscriptor
+    ROL_CHOICES = [
+        ('admin', 'Administrador'),
+        ('suscriptor', 'Suscriptor'),
+    ]
+    rol = models.CharField(max_length=20, choices=ROL_CHOICES, default='suscriptor')
+
     def __str__(self):
         return self.user.username
 
