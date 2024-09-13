@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,3 +144,17 @@ AUTHENTICATION_BACKENDS = (
     'desarrollo.backends.EmailOrUsernameBackend',  # Asegúrate de que apunte correctamente a tu archivo 'backends.py'
     'django.contrib.auth.backends.ModelBackend',  # Mantén el backend predeterminado también
 )
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Nova Analytics Admin",
+    "site_header": "Nova Analytics",
+    "welcome_sign": "Bienvenido al panel de administración",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "order_with_respect_to": ["auth", "books", "book_issues"],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+}
