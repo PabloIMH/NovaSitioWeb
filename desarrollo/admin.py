@@ -1,10 +1,14 @@
+import os  # Import para gestionar la ruta de la imagen
+from django.conf import settings
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
-from django.core.mail import send_mail
-from django.utils.html import mark_safe  # Importamos mark_safe para renderizar HTML seguro
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.utils.html import mark_safe
 from .forms import CustomUserCreationForm
 from .models import PerfilUsuario
 
@@ -44,7 +48,7 @@ class CustomUserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'rol'),  # Añadimos 'rol'
+            'fields': ('username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'rol'),  
         }),
     )
 
@@ -53,11 +57,30 @@ class CustomUserAdmin(BaseUserAdmin):
     get_rol.short_description = 'Rol'  # Nombre de la columna "Rol"
 
     def get_image_and_username(self, obj):
-        # Si el perfil tiene una imagen, mostrarla junto al nombre de usuario, de lo contrario mostrar un marcador
+        # img perfil
         if obj.perfilusuario and obj.perfilusuario.imagen_perfil:
             return mark_safe(f'<img src="{obj.perfilusuario.imagen_perfil.url}" width="40" height="40" style="border-radius: 30%; vertical-align: middle; margin-right: 10px;" /> {obj.username}')
         return obj.username
     get_image_and_username.short_description = 'Nombre de usuario'
+
+    def enviar_correo_bienvenida(self, usuario, contraseña):
+        subject = 'Tu cuenta en Nova Analytics ha sido creada'
+        # Renderizar la plantilla 
+        html_message = render_to_string('email_bienvenida.html', {
+            'usuario': usuario,
+            'contraseña': contraseña,
+            'url_login': 'http://127.0.0.1:8000/login/',  # URL local para pruebas
+        })
+        
+        plain_message = strip_tags(html_message)
+        from_email = settings.DEFAULT_FROM_EMAIL
+        
+        # Crear el objeto de correo electrónico
+        email = EmailMessage(subject, html_message, from_email, [usuario.email])
+        
+        # Enviar el correo como HTML, sin adjuntar el logo
+        email.content_subtype = 'html'  # Enviar el correo como HTML
+        email.send(fail_silently=False)
 
     def save_model(self, request, obj, form, change):
         if not change:  # Si es un usuario nuevo
@@ -77,13 +100,7 @@ class CustomUserAdmin(BaseUserAdmin):
             obj.save()
             
             # Enviar el correo con la contraseña generada
-            send_mail(
-                'Tu cuenta ha sido creada en el sistema',
-                f'Tu nombre de usuario es {obj.username} y tu contraseña temporal es {random_password}',
-                'noreply@tu-sitio.com',  # Cambia el remitente
-                [obj.email],
-                fail_silently=False,
-            )
+            self.enviar_correo_bienvenida(obj, random_password)
         else:
             # Solo establece la contraseña si se cambia
             if form.cleaned_data['password']:

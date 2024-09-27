@@ -128,6 +128,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'reclaprosgie@gmail.com'
 EMAIL_HOST_PASSWORD = 'z r m y p j t f w g u u z u l f'
+DEFAULT_FROM_EMAIL = 'reclaprosgie@gmail.com'
 
 
 # Configuración de autenticación
@@ -148,13 +149,26 @@ AUTHENTICATION_BACKENDS = (
 JAZZMIN_SETTINGS = {
     "site_title": "Nova Analytics Admin",
     "site_header": "Nova Analytics",
+    "site_brand": "Nova Analytics",  # Texto en la barra superior
     "welcome_sign": "Bienvenido al panel de administración",
     "show_sidebar": True,
     "navigation_expanded": True,
+
+    # Orden de las aplicaciones
     "order_with_respect_to": ["auth", "books", "book_issues"],
+
+    # Iconos personalizados
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
     },
+
+    # Configuración del logo
+    "site_logo": "img/logo.png",  # Ruta al logo dentro de la carpeta static
+    "site_logo_small": "img/logo.png",  # Un logo alternativo para el menú colapsado (opcional)
+    "site_logo_classes": "img-circle",  # Clase CSS para personalizar el logo
+
+    # Mostrar u ocultar el botón de personalización de UI de Jazzmin
+    "show_ui_builder": False,  # Si no quieres mostrar el botón del UI builder en el admin
 }
