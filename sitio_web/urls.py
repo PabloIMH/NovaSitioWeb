@@ -19,6 +19,7 @@ urlpatterns = [
     path('cliente/', views.cliente_view, name='cliente_view'),  # Cambiar el nombre a 'cliente_view' para ser consistente
 
     # Rutas para el manejo de la recuperación de contraseñas
+<<<<<<< HEAD
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name="registration/password_reset.html"), name='password_reset'),
     path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name="registration/password_done.html"), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="registration/password_confirm.html"), name='password_reset_confirm'),
@@ -33,6 +34,14 @@ urlpatterns = [
 
 
 
+=======
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+]
+
+>>>>>>> 25e93f093e206db20e455f818b79879b40b47eb9
 # Servir archivos estáticos y de medios en modo DEBUG
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

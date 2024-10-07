@@ -46,7 +46,11 @@ ROOT_URLCONF = 'sitio_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+=======
+        'DIRS': [],
+>>>>>>> 25e93f093e206db20e455f818b79879b40b47eb9
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -165,8 +169,13 @@ JAZZMIN_SETTINGS = {
     },
 
     # Configuración del logo
+<<<<<<< HEAD
     "site_logo_small": "img/logo.png",  # Un logo alternativo para el menú colapsado (opcional)
     "site_logo_"
+=======
+    "site_logo": "img/logo.png",  # Ruta al logo dentro de la carpeta static
+    "site_logo_small": "img/logo.png",  # Un logo alternativo para el menú colapsado (opcional)
+>>>>>>> 25e93f093e206db20e455f818b79879b40b47eb9
     "site_logo_classes": "img-circle",  # Clase CSS para personalizar el logo
 
     # Mostrar u ocultar el botón de personalización de UI de Jazzmin

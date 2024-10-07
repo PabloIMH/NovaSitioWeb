@@ -3,4 +3,7 @@ Django==5.1.1
 sqlparse==0.5.1
 typing_extensions==4.12.2
 tzdata==2024.1
+<<<<<<< HEAD
 django-jazzmin==3.0.0
+=======
+>>>>>>> 25e93f093e206db20e455f818b79879b40b47eb9
