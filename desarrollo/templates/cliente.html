@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nova Analytics</title>
+        <link rel="stylesheet" href="{% static 'css/cliente.css' %}">
+
+    </head>
+    <!-- Cuerpo de interfaz de la vista 'Cliente' (Prototipo) -->
+    <body>
+        <header>
+            <nav>
+                <img src="{% static 'img/img_correo.png' %}" alt="Nova Analytics Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a href="#">NUESTRO EQUIPO</a></li>
+                    <li><a href="#">SERVICIOS</a></li>
+                    <li><a href="#">COMUNIDAD NOVA</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                </ul>
+                <div class="client-buttons">
+                    <a href="#" class="clients-btn">CLIENTES</a>
+                    <a href="#" class="virtual-btn">AULA VIRTUAL</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Escritorio</h1>
+            <div class="dashboard-nav">
+                <a href="#">Escritorio</a>
+                <a href="#">Reportes</a>
+                <a href="#">Dashboards</a>
+            </div>
+            <div class="dashboard-content">
+                <div class="sidebar">
+                    <img src="company-logo.png" alt="Logo Compañia " style="width: 100%; margin-bottom: 20px;">
+                    <img src="{% static 'img/escritorio.jpeg' %}" alt="Nova Technology" style="width: 100%;">
+                </div>
+                <div class="main-content report-dash-section">
+                    <div>
+                        <h2>Reportes recientes</h2>
+                        <ul>
+                            <li>Reporte de campo Catrimaiten 3 10-02-2024 <span>1 archivo</span></li>
+                            
+                        </ul>
+                        <div class="ver-todos"><a href="#">Ver todos</a></div>
+                    </div>
+
+                    <div>
+                        <h2>Dashboards recientes</h2>
+                        <ul>
+                            <li>Módulos de Estimación de Cosecha y Estado Fenológico</li>
+                        </ul>
+                        <div class="ver-todos"><a href="#">Ver todos</a></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="{% static 'img/logo.png' %}" alt="Nova Analytics Logo" style="width: 100px; margin-bottom: 20px;">
+                    <p>Nos enorgullecemos de evolucionar junto a nuestros clientes, destacándonos en innovación, tecnología y adaptación a cada temporada.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Menú</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Nuestro Equipo</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Nova Academy</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Inspección y Coordinación</h3>
+                    <ul>
+                        <li><a href="#">Inspección de Labores</a></li>
+                        <li><a href="#">Inspección de Calidad</a></li>
+                        <li><a href="#">Coordinador de Cosecha</a></li>
+                        <li><a href="#">Desarrollo de Reportes</a></li>
+                        <li><a href="#">Auditor de bodega</a></li>
+                        <li><a href="#">Capacitaciones Agrícolas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Tecnologías</h3>
+                    <ul>
+                        <li><a href="#">Software de Captación de Data</a></li>
+                        <li><a href="#">Almacenamiento de Data</a></li>
+                        <li><a href="#">Dashboard de Visualización de Data en Tiempo Real</a></li>
+                        <li><a href="#">Reportes con Data Insight</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+

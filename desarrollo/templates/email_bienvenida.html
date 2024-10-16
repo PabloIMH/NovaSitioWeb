@@ -1,0 +1,95 @@
+{% load static %}  
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bienvenido a Nova Analytics</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background-color: #f4f4f4;  
+            text-align: center; /* Centrar el texto en todo el cuerpo */  
+        }  
+        .container {  
+            width: 100%;  
+            max-width: 600px;  
+            margin: 0 auto;  
+            background-color: #ffffff;  
+            padding: 20px;  
+            border-radius: 8px;  
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
+        }  
+        h1 {  
+            color: #333;  
+        }  
+        p {  
+            color: #555;  
+        }  
+        .footer {  
+            margin-top: 20px;  
+            color: #999;  
+        }  
+        .button {  
+            background-color: #28a745;  
+            color: white !important; /* Color blanco del texto */  
+            padding: 10px 20px;  
+            text-decoration: none;  
+            border-radius: 5px;  
+            display: inline-block;  
+            margin: 20px 0; /* Margen arriba y abajo */  
+            font-weight: bold;  
+            /* El siguiente estilo es clave para centrar el botón */  
+            width: 200px; /* Ajusta el ancho del botón según sea necesario */  
+        }  
+        .button:hover {  
+            background-color: #218838;  
+        }  
+        ul {  
+            list-style-type: none; /* Eliminar viñetas en la lista */  
+            padding: 0;  
+        }  
+        ul li {  
+            text-align: left;  
+            margin-bottom: 10px;  
+        }  
+        .logo {  
+            text-align: center;  
+            margin-bottom: 20px;  
+        }  
+        .logo img {  
+            max-width: 200px;  
+        }  
+        /* Estilos adicionales para el párrafo de agradecimiento */  
+        .thank-you {  
+            margin-top: 20px; /* Margen superior para separación */  
+            font-weight: bold; /* Negrita para mayor énfasis */  
+            text-align: center; /* Asegurar que esté centrado */  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <div class="logo">  
+            <img src="https://novaproduceis.net/wp-content/uploads/2023/12/Logo-2024-sin-fondo-1.png" alt="Nova Analytics Logo">  
+        </div>  
+        <h1>¡Bienvenido a Nova Analytics, {{ usuario.username }}!</h1>  
+        <p>Tu cuenta ha sido creada exitosamente. Aquí tienes tus credenciales de acceso:</p>  
+        <ul>  
+            <li><strong>Nombre de usuario:</strong> {{ usuario.username }}</li>  
+            <li><strong>Correo electrónico:</strong> {{ usuario.email }}</li>  
+            <li><strong>Contraseña temporal:</strong> {{ contraseña }}</li>  
+        </ul>  
+        <p>Para iniciar sesión y cambiar tu contraseña lo antes posible, haz clic en el siguiente enlace:</p>  
+        <div style="text-align: center;"> <!-- Añadir un contenedor centrado -->  
+            <a href="{{ url_login }}" class="button">Iniciar sesión</a>  
+        </div>  
+        <p class="thank-you">¡Gracias por unirte a Nova Analytics!</p>  
+        <div class="footer">  
+            <p>&copy; 2024 Nova Analytics. Todos los derechos reservados.</p>  
+        </div>  
+    </div>  
+</body>  
+</html>
